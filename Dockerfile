@@ -24,7 +24,8 @@ RUN apt-get update -y && \
     php5-sqlite \
     php5-xdebug \
     php5-xmlrpc \
-    php5-xcache
+    php5-xcache \
+    zip
 
 # Configure PHP-FPM
 RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php5/fpm/php.ini && \
