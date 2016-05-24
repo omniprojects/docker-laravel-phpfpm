@@ -42,7 +42,6 @@ RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php5/fpm/php.ini && 
 RUN mkdir -p /data
 VOLUME ["/data"]
 RUN usermod -u 1000 www-data
-RUN chown -R www-data /data
 
 EXPOSE 9000
 
