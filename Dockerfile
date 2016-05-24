@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-MAINTAINER "Dylan Lindgren" <dylan.lindgren@gmail.com>
+MAINTAINER "Jonathan Azoff" <dev@beomni.com>
 
 # Install PHP-FPM and popular/laravel required extensions
 RUN apt-get update -y && \
@@ -40,6 +40,7 @@ RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php5/fpm/php.ini && 
     sed -i '/^;env\[TEMP\] = .*/aenv[DB_PORT_3306_TCP_ADDR] = $DB_PORT_3306_TCP_ADDR' /etc/php5/fpm/pool.d/www.conf
 
 RUN mkdir -p /data
+RUN usermod -u 1000 www-data
 VOLUME ["/data"]
 
 EXPOSE 9000
