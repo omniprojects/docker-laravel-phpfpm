@@ -40,8 +40,9 @@ RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php5/fpm/php.ini && 
     sed -i '/^;env\[TEMP\] = .*/aenv[DB_PORT_3306_TCP_ADDR] = $DB_PORT_3306_TCP_ADDR' /etc/php5/fpm/pool.d/www.conf
 
 RUN mkdir -p /data
-RUN usermod -u 1000 www-data
 VOLUME ["/data"]
+RUN usermod -u 1000 www-data
+RUN chown -R www-data /data
 
 EXPOSE 9000
 
